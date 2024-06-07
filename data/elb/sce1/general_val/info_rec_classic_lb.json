@@ -1,0 +1,20 @@
+{
+    "LoadBalancerAttributes": {
+        "AccessLog": {
+            "Enabled": true,
+            "S3BucketName": "my-logging-bucket",
+            "EmitInterval": 60,
+            "S3BucketPrefix": "my-log-prefix"
+        },
+        "ConnectionDraining": {
+            "Enabled": true,
+            "Timeout": 300
+        },
+        "CrossZoneLoadBalancing": {
+            "Enabled": true
+        },
+        "ConnectionSettings": {
+            "IdleTimeout": 60
+        }
+    }
+}

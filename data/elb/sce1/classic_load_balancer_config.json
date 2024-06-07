@@ -1,0 +1,55 @@
+{
+    "LoadBalancerDescriptions": [
+        {
+            "LoadBalancerName": "my-classic-load-balancer",
+            "DNSName": "my-classic-load-balancer-1234567890.us-west-2.elb.amazonaws.com",
+            "CanonicalHostedZoneName": "my-classic-load-balancer-1234567890.us-west-2.elb.amazonaws.com",
+            "CanonicalHostedZoneNameID": "Z3DZXE0EXAMPLE",
+            "ListenerDescriptions": [
+                {
+                    "Listener": {
+                        "Protocol": "HTTP",
+                        "LoadBalancerPort": 80,
+                        "InstanceProtocol": "HTTP",
+                        "InstancePort": 80
+                    },
+                    "PolicyNames": []
+                }
+            ],
+            "Policies": {
+                "AppCookieStickinessPolicies": [],
+                "LBCookieStickinessPolicies": [],
+                "OtherPolicies": []
+            },
+            "BackendServerDescriptions": [],
+            "AvailabilityZones": [
+                "us-west-2a"
+            ],
+            "Subnets": [
+                "subnet-12345678"
+            ],
+            "VPCId": "vpc-12345678",
+            "Instances": [
+                {
+                    "InstanceId": "i-1234567890abcdef0"
+                }
+            ],
+            "HealthCheck": {
+                "Target": "HTTP:80/ping",
+                "Interval": 30,
+                "Timeout": 5,
+                "UnhealthyThreshold": 2,
+                "HealthyThreshold": 10
+            },
+            "SourceSecurityGroup": {
+                "OwnerAlias": "123456789012",
+                "GroupName": "default"
+            },
+            "SecurityGroups": [
+                "sg-12345678"
+            ],
+            "CreatedTime": "2018-01-01T00:00:00.000Z",
+            "Scheme": "internet-facing"
+        }
+    ]
+}

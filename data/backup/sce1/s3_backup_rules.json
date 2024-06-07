@@ -1,0 +1,71 @@
+{
+    "Rules": [
+        {
+            "ID": "Transition to Standard-IA",
+            "Prefix": "documents/",
+            "Status": "Enabled",
+            "Transitions": [
+                {
+                    "Days": 30,
+                    "StorageClass": "STANDARD_IA"
+                }
+            ]
+        },
+        {
+            "ID": "Transition to Glacier",
+            "Prefix": "archive/",
+            "Status": "Enabled",
+            "Transitions": [
+                {
+                    "Days": 365,
+                    "StorageClass": "GLACIER"
+                }
+            ]
+        },
+        {
+            "ID": "Expire after one year",
+            "Prefix": "temporary/",
+            "Status": "Enabled",
+            "Expiration": {
+                "Days": 365
+            }
+        },
+        {
+            "ID": "Delete expired object delete markers",
+            "Status": "Enabled",
+            "Filter": {
+                "Prefix": ""
+            },
+            "Expiration": {
+                "ExpiredObjectDeleteMarker": true
+            }
+        },
+        {
+            "ID": "Move non-current versions to Glacier",
+            "Prefix": "",
+            "Status": "Enabled",
+            "NoncurrentVersionTransitions": [
+                {
+                    "NoncurrentDays": 30,
+                    "StorageClass": "GLACIER"
+                }
+            ]
+        },
+        {
+            "ID": "Expire non-current versions after 365 days",
+            "Prefix": "",
+            "Status": "Enabled",
+            "NoncurrentVersionExpiration": {
+                "NoncurrentDays": 365
+            }
+        },
+        {
+            "ID": "Abort incomplete multipart uploads after 7 days",
+            "Prefix": "",
+            "Status": "Enabled",
+            "AbortIncompleteMultipartUpload": {
+                "DaysAfterInitiation": 7
+            }
+        }
+    ]
+}

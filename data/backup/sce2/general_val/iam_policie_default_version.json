@@ -1,0 +1,24 @@
+{
+    "PolicyVersion": {
+        "Document": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Action": [
+                        "dynamodb:PutItem",
+                        "dynamodb:GetItem",
+                        "dynamodb:UpdateItem",
+                        "dynamodb:DeleteItem",
+                        "dynamodb:Query",
+                        "dynamodb:Scan"
+                    ],
+                    "Resource": "arn:aws:dynamodb:us-west-2:123456789012:table/MyTable"
+                }
+            ]
+        },
+        "VersionId": "v1",
+        "IsDefaultVersion": true,
+        "CreateDate": "2023-01-01T12:00:00Z"
+    }
+}

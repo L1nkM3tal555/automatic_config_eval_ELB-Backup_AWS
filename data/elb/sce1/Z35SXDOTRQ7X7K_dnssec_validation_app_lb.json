@@ -1,0 +1,22 @@
+{
+    "Status": {
+        "ServeSignature": "SIGNING",
+        "StatusMessage": "DNSSEC signing is enabled and the zone is being signed."
+    },
+    "KeySigningKeys": [
+        {
+            "Name": "ksk-1",
+            "KmsArn": "arn:aws:kms:us-east-1:123456789012:key/abc12345-6789-0abc-def0-123456789abc",
+            "Flag": 257,
+            "SigningAlgorithmMnemonic": "RSASHA256",
+            "SigningAlgorithmType": 8,
+            "DigestAlgorithmMnemonic": "SHA256",
+            "DigestAlgorithmType": 2,
+            "KeyTag": 12345,
+            "DigestValue": "abc123def456...",
+            "PublicKey": "MIIBIjANBgkqh...",
+            "DSRecord": "12345 8 2 abc123def456...",
+            "DNSKEYRecord": "257 3 8 MIIBIjANBgkqh..."
+        }
+    ]
+}

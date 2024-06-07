@@ -1,0 +1,30 @@
+{
+    "HostedZones": [
+        {
+            "Id": "/hostedzone/Z35SXDOTRQ7X7K",
+            "Name": "example.com.",
+            "CallerReference": "C14D4053-001A-4FCF-800A-123456789012",
+            "Config": {
+                "Comment": "Example hosted zone",
+                "PrivateZone": false
+            },
+            "ResourceRecordSetCount": 3,
+            "LinkedService": {
+                "ServicePrincipal": "service.amazonaws.com",
+                "Description": "Hosted zone linked to example service"
+            }
+        },
+        {
+            "Id": "/hostedzone/Z3M3LMPEXAMPLE",
+            "Name": "another-example.com.",
+            "CallerReference": "D7E12345-001A-4FCF-800A-654321098765",
+            "Config": {
+                "Comment": "Another example hosted zone",
+                "PrivateZone": false
+            },
+            "ResourceRecordSetCount": 5
+        }
+    ],
+    "IsTruncated": false,
+    "MaxItems": "100"
+}
