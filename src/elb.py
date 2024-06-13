@@ -64,11 +64,84 @@ def startEvaluation():
         DNS(lb_name,lb_dns_name,listHostedZones,path)
         generalAN(appNet, j,path)
 
+    printResult()
+
     end_time = time.time()
 
     print("El tiempo de ejecución es:", end_time - start_time, "segundos")
     
+def printResult():
+    generalA = list(general.keys())
+    dnsA = list(dns.keys())
+    protocolsA = list(protocols.keys())
+    scallingA = list(scalling.keys())
+    print("EVALUACIÓN DE CONFIGURACIÓN DE BALANCEADORES DE CARGA")
+    print("\nASPECTOS GENERALES:\n")
+    if len(generalA) !=0:
+        for i in range(0, len(generalA)):
+            balancer = generalA[i]
+            print(balancer+":")
+            a = general[balancer]
+            
+            for j in range(0,len(a)):
+                if a[j] == "NO CIPHER":
+                    print("ERROR - CIFRADO: No se encontró cifrado para el balanceador de carga, verifique que exista o adicione uno, su información podria no ser confidencial")
+                elif a[j] == "CIPHER DEACTIVATED":
+                    print("ADVERTENCIA - CIFRADO: Se encontró cifrado para el balanceador de carga pero este se encuentra desactivado, verifique el estado, su información podria no ser confidencial")
+                elif a[j] == "NO CIPHER ON LISTENER":
+                    print("ERROR - CIFRADO: No se encontró cifrado para los listeners del balanceador de carga, verifique que exista o adicionelo, su información podria no ser confidencial")
+                elif a[j] == "NO INFO RECOVERY":
+                    print("ERROR - RECUPERACIÓN DE INFORMACIÓN: No se encontró uso de logs para el balanceador de carga, podria perderse información en caso de una eventualidad")
+                elif a[j] == "OPEN PORTS":
+                    print("ADVERTENCIA - CONTROL DE ACCESSO: Se esta permitiendo la comunicación a traves de varios puertos, asegurese de que no tiene mas puertos abiertos de los que realmente esta usando")
+                elif a[j] == "NO IP RESTRICTION":
+                    print("ERROR - CONTROL DE ACCESO: No hay un rango de ip definido para la comunicación (0.0.0.0/0), cualquier ip puede conectarse")
+                elif a[j] == "NO ACCESS CONTROL":
+                    print("ERROR - CONTROL DE ACCESO: No se encontró manejo de control de acceso en el balanceador, pueden haber conexiones no autorizadas")
+    else:
+        print("No se encontraron configuraciones inadecuadas en el cifrado, recuperación de información o control de acceso para alguno de los balanceadores evaluados")
+    
+    print("\nASPECTOS ESPECIFICOS:\n")
+    #print("DNS:")
+    if len(dnsA) !=0:
+        for i in range(0, len(dnsA)):
+            balancer = dnsA[i]
+            print(balancer+":")
+            a = dns[balancer]
+            
+            for j in range(0,len(a)):
+                if a[j] == "NO DNSSEC":
+                    print("ERROR - DNS: No se evidenció el uso del protocolo seguro DNSSEC para el DNS personalizado a traves del servicio Amazon Route 53, verifique la configuración del servicio de DNS o adicione la configuración, la comunicación con el servidor DNS puede no ser segura")
+                else:
+                    print("ADVERTENCIA - DNS: Unicamente se tiene un direccionamiento por defecto a traves del DNS proporcionado de manera predeterminada por AWS, es necesario verificar manualmente el uso del protocolo DNSSEC, la comunicación con el servidor DNS puede no ser segura")
+    else:
+        print("No se encontraron configuraciones inadecuadas en el DNS para alguno de los balanceadores evaluados")
 
+    if len(protocolsA) !=0:
+        for i in range(0, len(protocolsA)):
+            balancer = protocolsA[i]
+            print(balancer+":")
+            a = protocols[balancer]
+            
+            for j in range(0,len(a)):
+                if a[j] == "NO SECURE PROTOCOL":
+                    print("ERROR - PROTOCOLOS: No se evidenció el uso del protocolos seguros para la comunicación del balanceador de carga, cambie los protocolos usados por sus versiones seguras, la comunicación no es segura")
+                
+    else:
+        print("No se encontraron configuraciones inadecuadas en los protocolos de comunicación para alguno de los balanceadores evaluados")
+
+    if len(scallingA) !=0:
+        for i in range(0, len(scallingA)):
+            balancer = scallingA[i]
+            print(balancer+":")
+            a = scalling[balancer]
+            
+            for j in range(0,len(a)):
+                if a[j] == "LIMIT EXCEDED":
+                    print("ERROR - AUTOESCALADO: Se han alcanzado los limites de autoescalado, el balanceador de carga puede fallar lidiando con grandes cantidades de trafico")
+                
+    else:
+        print("No se encontraron configuraciones inadecuadas en el autoescalado de alguno de los balanceadores evaluados")
     
 
 def DNS(lb_name, lb_dns_name, listHostedZones,path):
@@ -108,7 +181,6 @@ def extractHostedZones(hz):
 def generalClassic(classic, i, path): #O(b^2*p*a)
 
     #Cipher Classic 
-    print(classic[i]["LoadBalancerName"])
     with open(path+"general_val/classic_lb_policies.json") as cc: #En realidad se ejecutaria el comando aws elb describe-load-balancer-policies --load-balancer-name <load-balancer-name> por cada balanceador
         policies = json.load(cc)
     policies= policies["PolicyDescriptions"]
@@ -142,21 +214,7 @@ def generalClassic(classic, i, path): #O(b^2*p*a)
     else:
         general[classic[i]["LoadBalancerName"]] = addToMapValue(general, classic[i]["LoadBalancerName"], "NO ACCESS CONTROL")
     
-    """
-    for s in range(0,len(c_sec_g)-1):
-        with open(path+"general_val/access_control_sec_groups_app_lb.json") as ca: #En realidad se ejecutaria el comando aws ec2 describe-security-groups --group-ids <security-group-id> por cada grupo de seguridad del balanceador
-            sec_g = j.load(ca)
-            sec_g = sec_g["SecurityGroups"]
-
-            ipPer = sec_g["IpPermissions"][0]
-
-            if ipPer["FromPort"] != ipPer["FromPort"]:
-                general[classic[i]["LoadBalancerName"]] = addToMapValue(general, classic[i]["LoadBalancerName"], "OPEN PORTS")
-
-            ipRange = ipPer["IpRanges"][0]
-            if ipRange["CidrIp"] == "0.0.0.0/0":
-                general[classic[i]["LoadBalancerName"]] = addToMapValue(general, classic[i]["LoadBalancerName"], "NO IP RESTRICTION:"+c_sec_g[s]["GroupName"])
-    """
+   
 def generalAN(appNet, i, path):          
     #Cipher App-Net 
     ty = appNet[i]["Type"]
@@ -220,7 +278,7 @@ def accessControl(sec_g, lb, i, path):
 
             ipRange = ipPer["IpRanges"][0]
             if ipRange["CidrIp"] == "0.0.0.0/0":
-                general[lb[i]["LoadBalancerName"]] = addToMapValue(general, lb[i]["LoadBalancerName"], "NO IP RESTRICTION:"+sec_g[s]["GroupName"])
+                general[lb[i]["LoadBalancerName"]] = addToMapValue(general, lb[i]["LoadBalancerName"], "NO IP RESTRICTION") #:+sec_g[s]["GroupName"]
 
 #MISC
 
