@@ -1,0 +1,32 @@
+{
+    "BackupPlan": {
+        "BackupPlanName": "S3BackupPlan",
+        "Rules": [
+            {
+                "RuleName": "DailyS3Backup",
+                "TargetBackupVaultName": "Default",
+                "ScheduleExpression": "cron(0 12 * * ? *)",
+                "StartWindowMinutes": 60,
+                "CompletionWindowMinutes": 120,
+                "Lifecycle": {
+                    "MoveToColdStorageAfterDays": 30,
+                    "DeleteAfterDays": 365
+                },
+                "RecoveryPointTags": {
+                    "Environment": "Production"
+                },
+                "RuleId": "rule1234"
+            }
+        ]
+    },
+    "BackupPlanId": "plan1234-5678-efgh-ijkl-5678mnopqrst",
+    "BackupPlanArn": "arn:aws:backup:us-west-2:123456789012:backup-plan/plan1234-5678-efgh-ijkl-5678mnopqrst",
+    "VersionId": "1",
+    "CreationDate": "2023-01-01T00:00:00.000Z",
+    "CreatedBy": {
+        "BackupPlanId": "plan1234-5678-efgh-ijkl-5678mnopqrst",
+        "BackupPlanArn": "arn:aws:backup:us-west-2:123456789012:backup-plan/plan1234-5678-efgh-ijkl-5678mnopqrst",
+        "BackupPlanVersion": "1",
+        "BackupRuleId": "rule1234"
+    }
+}

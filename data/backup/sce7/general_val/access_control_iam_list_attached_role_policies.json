@@ -1,0 +1,12 @@
+{
+    "AttachedPolicies": [
+        {
+            "PolicyName": "AmazonS3FullAccess",
+            "PolicyArn": "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+        },
+        {
+            "PolicyName": "AWSBackupServiceRolePolicyForBackup",
+            "PolicyArn": "arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup"
+        }
+    ]
+}

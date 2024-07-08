@@ -1,0 +1,56 @@
+{
+    "PolicyDescriptions": [
+        {
+            "PolicyAttributeDescriptions": [
+            {
+                "AttributeName": "ProxyProtocol",
+                "AttributeValue": "true"
+            }
+            ],
+            "PolicyName": "my-ProxyProtocol-policy",
+            "PolicyTypeName": "ProxyProtocolPolicyType"
+        },
+        {
+            "PolicyAttributeDescriptions": [
+                {
+                    "AttributeName": "CookieName",
+                    "AttributeValue": "my-app-cookie"
+                }
+            ],
+            "PolicyName": "my-app-cookie-policy",
+            "PolicyTypeName": "AppCookieStickinessPolicyType"
+        },
+        {
+            "PolicyAttributeDescriptions": [
+            {
+                "AttributeName": "CookieExpirationPeriod",
+                "AttributeValue": "60"
+            }
+            ],
+            "PolicyName": "my-duration-cookie-policy",
+            "PolicyTypeName": "LBCookieStickinessPolicyType"
+        },
+        {
+            "PolicyName": "MySSLNegotiationPolicy",
+            "PolicyTypeName": "SSLNegotiationPolicyType",
+            "PolicyAttributeDescriptions": [
+                {
+                    "AttributeName": "Protocol-TLSv1.1",
+                    "AttributeValue": "true"
+                },
+                {
+                    "AttributeName": "Protocol-TLSv1.2",
+                    "AttributeValue": "true"
+                },
+                {
+                    "AttributeName": "Server-Defined-Cipher-Order",
+                    "AttributeValue": "true"
+                },
+                {
+                    "AttributeName": "Reference-Security-Policy",
+                    "AttributeValue": "ELBSecurityPolicy-2016-08"
+                }
+            ]
+        }
+    ]
+  }

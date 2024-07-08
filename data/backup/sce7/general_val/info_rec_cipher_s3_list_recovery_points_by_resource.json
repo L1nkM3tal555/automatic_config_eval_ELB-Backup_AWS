@@ -1,0 +1,21 @@
+{
+    "RecoveryPoints": [
+        {
+            "RecoveryPointArn": "arn:aws:backup:us-west-2:123456789012:recovery-point/1234abcd-5678-efgh-ijkl-5678mnopqrst",
+            "BackupVaultName": "Default",
+            "BackupVaultArn": "arn:aws:backup:us-west-2:123456789012:vault:Default",
+            "ResourceArn": "arn:aws:s3:::my-backup-bucket",
+            "CreationDate": "2023-01-01T00:00:00.000Z",
+            "CompletionDate": "2023-01-01T01:00:00.000Z",
+            "BackupSizeInBytes": 123456789,
+            "IamRoleArn": "arn:aws:iam::123456789012:role/S3BackupRole",
+            "Status": "COMPLETED",
+            "StatusMessage": "Backup completed successfully.",
+            "Lifecycle": {
+                "MoveToColdStorageAt": "2023-01-31T00:00:00.000Z",
+                "DeleteAt": "2024-01-01T00:00:00.000Z"
+            },
+            "EncryptionKeyArn": "arn:aws:kms:us-west-2:123456789012:key/abcd1234-a123-456a-a12b-a123b4cd56ef"
+        }
+    ]
+}

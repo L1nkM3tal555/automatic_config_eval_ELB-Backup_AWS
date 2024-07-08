@@ -7,12 +7,6 @@ import time
 
 general = {}
 
-"""
-cipher = {}
-rInfo = []
-aControl = {}
-"""
-
 dns = {}
 protocols = {}
 scalling = {}
@@ -22,14 +16,14 @@ def startEvaluation():
 
     path = "data/elb/sce"
     
-    test = input("Selccione un escenario de prueba (Numero del 1 al 4)")
+    test = input("Selccione un escenario de prueba (Numero del 1 al 4)\n")
     path = path + test +"/"
 
-    type = input("¿Quiere verificar tambien los Classic Load Balancers?\n 1.Si\n2.No")
+    type = input("¿Quiere verificar tambien los Classic Load Balancers?\n 1.Si\n2.No\n")
     if type=="1":
         with open(path+"classic_load_balancer_config.json") as c:
             classic = json.load(c)
-        classic = classic["LoadBalancerDescriptions"]
+            classic = classic["LoadBalancerDescriptions"]
 
     with open(path+"app-net_load_balancer_config.json") as a:
         appNet = json.load(a)
@@ -38,7 +32,7 @@ def startEvaluation():
 
     with open(path+"list_hosted_zones_route53.json") as ldns:
         listHostedZones= json.load(ldns)
-    listHostedZones = listHostedZones["HostedZones"]
+        listHostedZones = listHostedZones["HostedZones"]
     listHostedZones = extractHostedZones(listHostedZones)
 
     if classic:
