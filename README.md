@@ -4,6 +4,8 @@
 
 To install the tool download the latest release on your computer and decompress the obtained file with a file compression program such as WinRAR or 7zip.
 
+https://github.com/L1nkM3tal555/automatic_config_eval_ELB-Backup_AWS/releases
+
 In the "data" folder the output files in JSON format created for each test case is avaliable, in the "results" folder the evaluations that are exported to plain text will be stored, at the end of each evaluation of each configuration, lastly in the folder "src" the Python scripts will be stored.
 
 ## Excecution
