@@ -1,0 +1,20 @@
+{
+    "TargetGroups": [
+        {
+            "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-network-targets/73e2d6bc24d8a067",
+            "TargetGroupName": "my-network-targets",
+            "Protocol": "TCP",
+            "Port": 80,
+            "VpcId": "vpc-3ac0fb5f",
+            "HealthCheckProtocol": "TCP",
+            "HealthCheckPort": "traffic-port",
+            "HealthCheckIntervalSeconds": 30,
+            "HealthCheckTimeoutSeconds": 5,
+            "HealthyThresholdCount": 5,
+            "UnhealthyThresholdCount": 2,
+            "LoadBalancerArns": [
+                "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/net/my-network-load-balancer/50dc6c495c0c9188"
+            ]
+        }
+    ]
+}

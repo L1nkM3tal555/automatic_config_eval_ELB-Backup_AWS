@@ -1,7 +1,7 @@
 {
     "LoadBalancerAttributes": {
         "AccessLog": {
-            "Enabled": true,
+            "Enabled": false,
             "S3BucketName": "my-logging-bucket",
             "EmitInterval": 60,
             "S3BucketPrefix": "my-log-prefix"

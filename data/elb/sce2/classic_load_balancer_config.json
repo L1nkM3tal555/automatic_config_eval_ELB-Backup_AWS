@@ -4,7 +4,7 @@
             "LoadBalancerName": "my-classic-load-balancer",
             "DNSName": "my-classic-load-balancer-1234567890.us-west-2.elb.amazonaws.com",
             "CanonicalHostedZoneName": "my-classic-load-balancer-1234567890.us-west-2.elb.amazonaws.com",
-            "CanonicalHostedZoneNameID": "Z3DZXE0EXAMPLE",
+            "CanonicalHostedZoneNameID": "Z3M3LMPEXAMPLE",
             "ListenerDescriptions": [
                 {
                     "Listener": {
@@ -36,10 +36,10 @@
             ],
             "HealthCheck": {
                 "Target": "HTTP:80/ping",
-                "Interval": 30,
-                "Timeout": 5,
-                "UnhealthyThreshold": 2,
-                "HealthyThreshold": 10
+                "Interval": 5,
+                "Timeout": 2,
+                "UnhealthyThreshold": 3,
+                "HealthyThreshold": 2
             },
             "SourceSecurityGroup": {
                 "OwnerAlias": "123456789012",

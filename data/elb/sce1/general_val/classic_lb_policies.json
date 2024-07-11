@@ -29,28 +29,6 @@
             ],
             "PolicyName": "my-duration-cookie-policy",
             "PolicyTypeName": "LBCookieStickinessPolicyType"
-        },
-        {
-            "PolicyName": "MySSLNegotiationPolicy",
-            "PolicyTypeName": "SSLNegotiationPolicyType",
-            "PolicyAttributeDescriptions": [
-                {
-                    "AttributeName": "Protocol-TLSv1.1",
-                    "AttributeValue": "true"
-                },
-                {
-                    "AttributeName": "Protocol-TLSv1.2",
-                    "AttributeValue": "true"
-                },
-                {
-                    "AttributeName": "Server-Defined-Cipher-Order",
-                    "AttributeValue": "true"
-                },
-                {
-                    "AttributeName": "Reference-Security-Policy",
-                    "AttributeValue": "ELBSecurityPolicy-2016-08"
-                }
-            ]
         }
     ]
   }

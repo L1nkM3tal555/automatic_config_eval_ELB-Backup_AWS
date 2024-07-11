@@ -10,7 +10,7 @@
                 "ID": "user-id",
                 "DisplayName": "user-name"
             },
-            "Permission": "READ"
+            "Permission": "FULL_CONTROL"
         }
     ]
 }

@@ -20,7 +20,11 @@
                 {
                     "Effect": "Allow",
                     "Action": [
-                        "backup:CreateBackup"
+                        "backup:CreateBackup",
+                        "backup:DeleteBackup",
+                        "backup:DescribeBackup",
+                        "backup:ListRecoveryPointsByResource",
+                        "backup:RestoreBackup"
                     ],
                     "Resource": "*"
                 }

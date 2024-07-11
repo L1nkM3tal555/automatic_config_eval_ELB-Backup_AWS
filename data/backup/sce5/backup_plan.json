@@ -2,7 +2,7 @@
     "BackupPlan": {
         "BackupPlanName": "MyBackupPlan",
         "BackupPlanId": "12345678-abcd-1234-efgh-1234567890ab",
-        "BackupPlanArn": "arn:aws:backup:eu-west-2:123456789012:backup-plan/MyBackupPlan",
+        "BackupPlanArn": "arn:aws:backup:us-east-1:123456789012:backup-plan/MyBackupPlan",
         "BackupPlanVersion": "1",
         "Rules": [
             {
@@ -10,7 +10,7 @@
                 "TargetBackupVaultName": "MyBackupVault",
                 "ScheduleExpression": "cron(0 12 * * ? *)",
                 "Lifecycle": {
-                    "DeleteAfterDays": 30,
+                    "DeleteAfterDays": 15000,
                     "MoveToColdStorageAfterDays": 7
                 }
             }

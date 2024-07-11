@@ -23,11 +23,22 @@
             ]
         },
         {
-            "ID": "Expire after three years",
+            "ID": "Expire after one month",
             "Prefix": "temporary/",
             "Status": "Enabled",
             "Expiration": {
-                "Days": 1095
+                "Days": 30
+            }
+        },
+        {
+            "ID": "Delete expired object delete markers",
+            "Prefix": "",
+            "Status": "Enabled",
+            "Filter": {
+                "Prefix": ""
+            },
+            "Expiration": {
+                "ExpiredObjectDeleteMarker": true
             }
         },
         {

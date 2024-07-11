@@ -2,7 +2,7 @@
     "BackupPlan": {
         "BackupPlanName": "S3BackupPlan",
         "BackupPlanId": "abcd1234-5678-efgh-ijkl-1234567890ab",
-        "BackupPlanArn": "arn:aws:backup:us-east-1:123456789012:backup-plan/S3BackupPlan",
+        "BackupPlanArn": "arn:aws:backup:eu-west-2:123456789012:backup-plan/S3BackupPlan",
         "BackupPlanVersion": "1",
         "Rules": [
             {
@@ -10,7 +10,7 @@
                 "TargetBackupVaultName": "MyBackupVault",
                 "ScheduleExpression": "cron(0 3 * * ? *)",
                 "Lifecycle": {
-                    "DeleteAfterDays": 15000,
+                    "DeleteAfterDays": 90,
                     "MoveToColdStorageAfterDays": 30
                 }
             }

@@ -1,0 +1,22 @@
+{
+    "ScalingPolicies": [
+        {
+            "AutoScalingGroupName": "my-auto-scaling-group",
+            "PolicyName": "scale-out",
+            "PolicyARN": "arn:aws:autoscaling:us-west-2:123456789012:scalingPolicy:50dc6c495c0c9188:resource/autoScalingGroupName/my-auto-scaling-group:policyName/scale-out",
+            "PolicyType": "SimpleScaling",
+            "AdjustmentType": "ChangeInCapacity",
+            "ScalingAdjustment": 1,
+            "Cooldown": 300
+        },
+        {
+            "AutoScalingGroupName": "my-auto-scaling-group",
+            "PolicyName": "scale-in",
+            "PolicyARN": "arn:aws:autoscaling:us-west-2:123456789012:scalingPolicy:50dc6c495c0c9188:resource/autoScalingGroupName/my-auto-scaling-group:policyName/scale-in",
+            "PolicyType": "SimpleScaling",
+            "AdjustmentType": "ChangeInCapacity",
+            "ScalingAdjustment": -1,
+            "Cooldown": 300
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "AutoScalingGroups": [
+        {
+            "AutoScalingGroupName": "my-auto-scaling-group",
+            "LaunchConfigurationName": "my-launch-config",
+            "MinSize": 1,
+            "MaxSize": 3,
+            "DesiredCapacity": 2,
+            "Instances": [
+                {
+                    "InstanceId": "i-1234567890abcdef0",
+                    "AvailabilityZone": "us-west-2a",
+                    "LifecycleState": "InService",
+                    "HealthStatus": "Healthy",
+                    "LaunchConfigurationName": "my-launch-config"
+                }
+            ],
+            "LoadBalancerNames": ["my-classic-load-balancer", "my-network-load-balancer","my-application-load-balancer"],
+            "CreatedTime": "2023-01-01T12:00:00.000Z",
+            "VPCZoneIdentifier": "subnet-8360a9e7,subnet-b7d581c0",
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "my-auto-scaling-group"
+                }
+            ]
+        }
+    ]
+}

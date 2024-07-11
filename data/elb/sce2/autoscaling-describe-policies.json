@@ -1,0 +1,28 @@
+{
+    "ScalingPolicies": [
+        {
+            "AutoScalingGroupName": "my-auto-scaling-group",
+            "PolicyName": "scale-out",
+            "PolicyARN": "arn:aws:autoscaling:us-west-2:123456789012:scalingPolicy:50dc6c495c0c9188:resource/autoScalingGroupName/my-auto-scaling-group:policyName/scale-out",
+            "PolicyType": "SimpleScaling",
+            "AdjustmentType": "ChangeInCapacity",
+            "ScalingAdjustment": 1,
+            "Cooldown": 300
+        },
+        {
+            "AutoScalingGroupName": "my-auto-scaling-group",
+            "PolicyName": "scale-out",
+            "PolicyARN": "arn:aws:autoscaling:us-west-2:123456789012:scalingPolicy:50dc6c495c0c9188:resource/autoScalingGroupName/my-auto-scaling-group:policyName/scale-out",
+            "PolicyType": "TargetTrackingScaling",
+            "AdjustmentType": "ChangeInCapacity",
+            "ScalingAdjustment": 1,
+            "Cooldown": 300,
+            "TargetTrackingConfiguration":{
+                "PredefinedMetricSpecification":{
+                    "PredefinedMetricType":"ALBRequestCountPerTarget",
+                    "ResourceLabel": "app/my-classic-load-balancer/1234567890/targetgroup/my-clb-target-group/943f017f100becff"
+                }
+            }
+        }
+    ]
+}

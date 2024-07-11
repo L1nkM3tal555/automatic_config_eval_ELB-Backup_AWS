@@ -3,8 +3,8 @@
     "ResourceType": "S3 Bucket",
     "LastBackupTime": 1625738651.123,
     "ResourceName": "my-backup-bucket",
-    "LastBackupVaultArn": "arn:aws:backup:us-east-1:123456789012:vault/MyBackupVault",
-    "LastRecoveryPointArn": "arn:aws:backup:us-east-1:123456789012:recovery-point/01556473294751-1234abcd",
+    "LastBackupVaultArn": "arn:aws:backup:eu-west-2:123456789012:vault/MyBackupVault",
+    "LastRecoveryPointArn": "arn:aws:backup:eu-west-2:123456789012:recovery-point/01556473294751-1234abcd",
     "LatestRestoreExecutionTimeMinutes": 45,
     "LatestRestoreJobCreationDate": "2023-07-08T14:00:00Z",
     "LatestRestoreRecoveryPointCreationDate": "2023-07-08T13:30:00Z"

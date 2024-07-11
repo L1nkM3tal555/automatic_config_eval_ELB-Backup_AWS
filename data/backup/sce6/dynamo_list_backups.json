@@ -1,0 +1,12 @@
+{
+    "BackupSummaries": [
+        {
+            "BackupArn": "arn:aws:dynamodb:eu-west-2:123456789012:table/MyTable/backup/01556473294751-1234abcd",
+            "BackupName": "MyTableBackup",
+            "BackupCreationDateTime": "2023-07-08T12:00:00Z",
+            "BackupStatus": "AVAILABLE",
+            "BackupType": "AWS_BACKUP",
+            "BackupSizeBytes": 123456
+        }
+    ]
+}

@@ -1,10 +1,10 @@
 {
-    "ResourceArn": "arn:aws:dynamodb:eu-west-2:123456789012:table/MyTable",
+    "ResourceArn": "arn:aws:dynamodb:us-east-1:123456789012:table/MyTable",
     "ResourceType": "DynamoDB Table",
     "LastBackupTime": 1625738651.123,
     "ResourceName": "MyTable",
-    "LastBackupVaultArn": "arn:aws:backup:eu-west-2:123456789012:vault/MyBackupVault",
-    "LastRecoveryPointArn": "arn:aws:backup:eu-west-2:123456789012:recovery-point/01556473294751-1234abcd",
+    "LastBackupVaultArn": "arn:aws:backup:us-east-1:123456789012:vault/MyBackupVault",
+    "LastRecoveryPointArn": "arn:aws:backup:us-east-1:123456789012:recovery-point/01556473294751-1234abcd",
     "LatestRestoreExecutionTimeMinutes": 30,
     "LatestRestoreJobCreationDate": "2023-07-08T13:00:00Z",
     "LatestRestoreRecoveryPointCreationDate": "2023-07-08T12:30:00Z"
